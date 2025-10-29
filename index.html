@@ -1,298 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vikram Swami | ITXITPro Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ITXITPro — Portfolio | Vikram Swami</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* ====== BASIC STYLES ====== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+    :root{
+      --bg:#fbfbfd;
+      --accent:#ff4f81;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --dark:#0f1724;
+      --glass: rgba(255,255,255,0.7);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#fbfbfd 0%, #f2f6fb 100%);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    body {
-      background-color: #f9f9fb;
-      color: #222;
-      line-height: 1.6;
+    /* NAV / HERO */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 6%;
+      background:transparent;
     }
-
-    h1, h2, h3 {
-      color: #111;
+    .brand {
+      display:flex;
+      gap:12px;
+      align-items:center;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+    .brand .logo{
+      width:46px;height:46px;border-radius:8px;
+      background:linear-gradient(135deg,#0066ff,#00c2ff);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+      box-shadow:0 6px 20px rgba(16,24,40,0.08);
     }
-
-    /* ====== HEADER ====== */
-    header {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
+    .brand h3{margin:0;font-size:1.05rem;letter-spacing:0.2px}
+    .nav-links{display:flex;gap:10px;align-items:center}
+    .nav-links a{
+      padding:8px 12px;border-radius:8px;color:var(--dark);text-decoration:none;font-weight:600;
+      transition:.18s;
     }
+    .nav-links a:hover{background:#fff; box-shadow:0 4px 18px rgba(16,24,40,0.06)}
 
-    header h1 {
-      font-size: 2.8rem;
+    header.hero{
+      text-align:center;
+      padding:64px 6% 40px;
+      background:linear-gradient(180deg,#0f1724 0%, #111827 38%);
+      color:#fff;
     }
-
-    header p {
-      font-size: 1.1rem;
-      margin-top: 10px;
-      color: #ff4f81;
+    header.hero h1{font-size:2.6rem;margin:0 0 8px}
+    header.hero p{margin:0;color:rgba(255,255,255,0.85); font-weight:500}
+    .role-buttons{margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .role-buttons a{
+      background:rgba(255,255,255,0.08);
+      color: #fff;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);
+      font-weight:600;text-decoration:none;transition:all .18s;
     }
+    .role-buttons a:hover{transform:translateY(-3px); background:var(--accent); box-shadow:0 8px 30px rgba(255,79,129,0.18); color:white;}
 
-    /* ====== NAVBAR ====== */
-    nav {
-      background: #222;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 15px;
+    /* CONTAINER */
+    .container{max-width:1100px;margin:40px auto;padding:0 22px}
+
+    /* ABOUT */
+    .about{
+      display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start;
     }
-
-    nav a {
-      color: #fff;
-      font-weight: 500;
-      transition: 0.3s;
+    .card {
+      background:var(--card);border-radius:12px;padding:22px;box-shadow:0 6px 30px rgba(16,24,40,0.06);
     }
+    .about .intro h2{color:var(--accent);margin:0 0 10px}
+    .about p{color:var(--muted);line-height:1.7}
 
-    nav a:hover {
-      color: #ff4f81;
+    /* SKILLS */
+    .skills-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .chip{
+      background:linear-gradient(180deg,#fff,#f8fafc);
+      border-radius:10px;padding:10px 14px;font-weight:600;color:#111;border:1px solid #eef2f7;
+      cursor:pointer; transition: all .16s;
     }
+    .chip:hover{transform:translateY(-4px); box-shadow:0 8px 20px rgba(16,24,40,0.06); background:var(--accent); color:white;}
 
-    /* ====== SECTION STYLES ====== */
-    section {
-      padding: 80px 10%;
+    /* PROJECTS */
+    section h2{font-size:1.4rem;margin-bottom:10px}
+    .projects{
+      margin-top:18px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;
     }
-
-    section h2 {
-      font-size: 2rem;
-      color: #ff4f81;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
+    .project{
+      display:block;background:linear-gradient(180deg,#ffffff,#ffffff);border-radius:12px;overflow:hidden;
+      text-decoration:none;color:inherit;box-shadow:0 6px 26px rgba(16,24,40,0.06);transition:all .18s;
     }
+    .project:hover{transform:translateY(-6px); box-shadow:0 12px 40px rgba(16,24,40,0.12)}
+    .project .thumb{height:160px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-weight:600;color:#9aa4b2}
+    .project .info{padding:14px}
+    .project .info h3{margin:0 0 8px;font-size:1.05rem}
+    .project .info p{color:var(--muted);margin:0 0 8px;font-size:0.95rem}
+    .project .info .meta{font-size:0.85rem;color:#9aa4b2}
 
-    section h2::after {
-      content: "";
-      width: 60px;
-      height: 3px;
-      background: #ff4f81;
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-    }
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .contact form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{padding:12px;border-radius:8px;border:1px solid #e6edf3;font-size:0.95rem}
+    button.cta{background:var(--accent);color:white;border:none;padding:12px 16px;border-radius:8px;font-weight:700;cursor:pointer}
+    button.cta:hover{background:#e83e6b}
 
-    /* ====== ABOUT ====== */
-    #about p {
-      max-width: 800px;
-      font-size: 1.05rem;
-    }
+    /* FOOTER */
+    footer{padding:28px 6%;text-align:center;color:var(--muted);font-size:0.95rem}
 
-    /* ====== SKILLS ====== */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .skill {
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex: 1 1 150px;
-      text-align: center;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .skill:hover {
-      background: #ff4f81;
-      color: white;
-      transform: translateY(-5px);
-    }
-
-    /* ====== PROJECTS ====== */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .project {
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      display: block;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .project img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .project-info {
-      padding: 15px;
-    }
-
-    .project-info h3 {
-      color: #111;
-      margin-bottom: 10px;
-    }
-
-    .project-info p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    /* ====== CONTACT ====== */
-    #contact form {
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      background: #ff4f81;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #e83e6b;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #111;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      nav { flex-wrap: wrap; gap: 20px; }
+    /* responsive */
+    @media (max-width:900px){
+      .about,.contact-grid{grid-template-columns:1fr}
+      .brand h3{display:none}
     }
   </style>
 </head>
 <body>
-  <!-- ====== HEADER ====== -->
-  <header>
+
+  <!-- TOP NAV -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">ITX</div>
+      <div>
+        <h3>ITXITPro</h3>
+        <div style="font-size:0.85rem;color:var(--muted);margin-top:4px">Unleash the Digital Dynamics</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <!-- optional: external company page -->
+      <a href="https://itxitpro.ae" target="_blank" rel="noopener">Company Site</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
     <h1>Hi, I'm Vikram Swami 👋</h1>
-    <p> Web Developer | WordPress | Shopify | Magento | Laravel | <a href="#about">Social Media Marketing - <a href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/VikramProfile.pdf" </a>
-   target="_blank" 
-   class="btn">View Profile</a>
- </p>
+    <p>Web Developer at <strong>ITXITPro</strong> — WordPress · Shopify · Magento · Laravel</p>
+
+    <div class="role-buttons" style="margin-top:20px">
+      <!-- anchor links to sections -->
+      <a href="#wordpress">WordPress</a>
+      <a href="#shopify">Shopify</a>
+      <a href="#magento">Magento</a>
+      <a href="#laravel">Laravel</a>
+      <a href="#smm">SMM Case</a>
+    </div>
   </header>
 
-  <!-- ====== NAVBAR ====== -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <!-- MAIN CONTAINER -->
+  <main class="container">
 
-  <!-- ====== ABOUT ====== -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hello! I'm <b>Vikram Swami</b>, a web developer at <b>ITXITPro</b> passionate about building responsive,
-      visually appealing, and high-performing websites. I specialize in <b>WordPress</b>, <b>Shopify</b>,
-      <b>Magento</b>, and <b>Laravel</b>, helping brands achieve a strong digital presence through
-      creativity and technology.
-    </p>
-  </section>
+    <!-- ABOUT + QUICK STATS -->
+    <div class="about">
+      <div class="intro card">
+        <h2>About ITXITPro / Vikram</h2>
+        <p>
+          ITXITPro is a digital solutions company focused on eCommerce and web platforms. 
+          Vikram Swami leads web development projects — building responsive stores, custom themes, and integrations.
+        </p>
 
-  <!-- ====== SKILLS ====== -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">HTML5</div>
-      <div class="skill">CSS3</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">WordPress</div>
-      <div class="skill">Shopify</div>
-      <div class="skill">Magento</div>
-      <div class="skill">Laravel</div>
-      <div class="skill">UI/UX Design</div>
+        <div style="margin-top:18px">
+          <strong style="display:block;margin-bottom:8px">Highlights</strong>
+          <ul style="color:var(--muted);line-height:1.7;padding-left:18px">
+            <li>Shopify & theme customization</li>
+            <li>WordPress development & performance</li>
+            <li>Magento migrations and integrations</li>
+            <li>Laravel custom admin & APIs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 12px">Contact</h3>
+        <p style="margin:0 0 6px;color:var(--muted)">Phone</p>
+        <p style="font-weight:700;margin-bottom:12px"><a href="tel:+918696915912">+91 8696915912</a></p>
+
+        <p style="margin:0 0 6px;color:var(--muted)">Location</p>
+        <p style="margin-bottom:12px">United Arab Emirates / India</p>
+
+        <a class="cta" href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" target="_blank" rel="noopener">
+          View SMM Case (PDF)
+        </a>
+      </div>
     </div>
-  </section>
 
-  <!-- ====== PROJECTS ====== -->
-  <section id="projects">
-    <h2>My Work</h2>
-    <div class="projects">
-      <a href="https://zevarworld.com/" target="_blank" class="project">
-        <img src="https://via.placeholder.com/400x250?text=Zevar+World" alt="Zevar World">
-        <div class="project-info">
-          <h3>Zevar World</h3>
-          <p>Shopify-based jewelry e-commerce website with elegant design.</p>
+    <!-- SKILLS -->
+    <section id="skills" style="margin-top:36px">
+      <h2>Skills</h2>
+      <div class="card" style="margin-top:12px">
+        <div class="skills-grid">
+          <!-- these chips are clickable anchors to specific sections -->
+          <a class="chip" href="#wordpress">WordPress</a>
+          <a class="chip" href="#shopify">Shopify</a>
+          <a class="chip" href="#magento">Magento</a>
+          <a class="chip" href="#laravel">Laravel</a>
+          <a class="chip" href="#uiux">UI/UX</a>
+          <a class="chip" href="#smm">SMM / Case Studies</a>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a href="https://s3tkoncepts.com/" target="_blank" class="project">
-        <img src="https://via.placeholder.com/400x250?text=S3T+Koncepts" alt="S3T Koncepts">
-        <div class="project-info">
-          <h3>S3T Koncepts</h3>
-          <p>WordPress website for interior design & architectural services.</p>
+    <!-- PROJECTS / PORTFOLIO -->
+    <section id="projects" style="margin-top:36px">
+      <h2>Featured Projects</h2>
+
+      <!-- ALL PROJECTS BLOCK -->
+      <div class="projects" style="margin-top:12px">
+        <!-- Shopify example -->
+        <a class="project" href="https://zevarworld.com/" target="_blank" rel="noopener">
+          <div class="thumb"><img src="https://via.placeholder.com/600x360?text=Zevar+World" alt="Zevar World" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="info">
+            <h3>Zevar World</h3>
+            <p>Shopify e-commerce — theme customization, product & collection setup.</p>
+            <div class="meta">Shopify • Theme work • Speed optimization</div>
+          </div>
+        </a>
+
+        <!-- WordPress example -->
+        <a class="project" href="https://s3tkoncepts.com/" target="_blank" rel="noopener">
+          <div class="thumb"><img src="https://via.placeholder.com/600x360?text=S3T+Koncepts" alt="S3T Koncepts" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="info">
+            <h3>S3T Koncepts</h3>
+            <p>WordPress site for interior design — custom templates & SEO basics.</p>
+            <div class="meta">WordPress • Elementor • Responsive</div>
+          </div>
+        </a>
+
+        <!-- Real estate example -->
+        <a class="project" href="https://www.theresidencesonyonge.ca/" target="_blank" rel="noopener">
+          <div class="thumb"><img src="https://via.placeholder.com/600x360?text=Residences+on+Yonge" alt="Residences" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="info">
+            <h3>Residences on Yonge</h3>
+            <p>Landing page & property showcase — multi-section responsive layout.</p>
+            <div class="meta">Landing • UX • Performance</div>
+          </div>
+        </a>
+
+        <!-- Jancor Shopify -->
+        <a class="project" href="https://www.jancoragencies.store/" target="_blank" rel="noopener">
+          <div class="thumb"><img src="https://via.placeholder.com/600x360?text=Jancor+Agencies" alt="Jancor" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="info">
+            <h3>Jancor Agencies</h3>
+            <p>Shopify retail platform — smooth UI & checkout improvements.</p>
+            <div class="meta">Shopify • UX • Payment integration</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Individual category sections (anchor targets) -->
+    <section id="wordpress" style="margin-top:36px">
+      <h2>WordPress Projects</h2>
+      <div class="card" style="margin-top:12px">
+        <p style="color:var(--muted)">Below are WordPress projects. Click any card to open the live site or download files if available.</p>
+
+        <div class="projects" style="margin-top:12px">
+          <!-- add more WordPress project cards similarly -->
+          <a class="project" href="https://s3tkoncepts.com/" target="_blank" rel="noopener">
+            <div class="thumb">WP: S3T Koncepts</div>
+            <div class="info">
+              <h3>S3T Koncepts</h3>
+              <p>Full WordPress build — custom templates, optimized images, responsive fixes.</p>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a href="https://www.theresidencesonyonge.ca/" target="_blank" class="project">
-        <img src="https://via.placeholder.com/400x250?text=Residences+on+Yonge" alt="Residences on Yonge">
-        <div class="project-info">
-          <h3>Residences on Yonge</h3>
-          <p>High-end real estate project site with dynamic property layout.</p>
+    <section id="shopify" style="margin-top:36px">
+      <h2>Shopify Projects</h2>
+      <div class="card" style="margin-top:12px">
+        <div class="projects">
+          <a class="project" href="https://zevarworld.com/" target="_blank" rel="noopener">
+            <div class="thumb">Shopify: Zevar World</div>
+            <div class="info">
+              <h3>Zevar World</h3>
+              <p>Custom theme adjustments, collection & product pages improvement.</p>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
+    </section>
 
-      <a href="https://www.jancoragencies.store/" target="_blank" class="project">
-        <img src="https://via.placeholder.com/400x250?text=Jancor+Agencies" alt="Jancor Agencies">
-        <div class="project-info">
-          <h3>Jancor Agencies</h3>
-          <p>Shopify-based retail website with smooth UX and animations.</p>
+    <section id="magento" style="margin-top:36px">
+      <h2>Magento Projects</h2>
+      <div class="card" style="margin-top:12px">
+        <p style="color:var(--muted)">Magento & migration work — (add projects here when ready).</p>
+      </div>
+    </section>
+
+    <section id="laravel" style="margin-top:36px">
+      <h2>Laravel Projects</h2>
+      <div class="card" style="margin-top:12px">
+        <p style="color:var(--muted)">Custom Laravel dashboards and admin panels — add details and files here.</p>
+      </div>
+    </section>
+
+    <section id="smm" style="margin-top:36px">
+      <h2>SMM Case Studies & Files</h2>
+      <div class="card" style="margin-top:12px">
+        <p style="color:var(--muted)">Your uploaded SMM deck and case studies can be downloaded or previewed from here.</p>
+
+        <!-- LINK TO YOUR UPLOADED PDF (raw link) -->
+        <p style="margin-top:12px">
+          <a class="cta" href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" target="_blank" rel="noopener">
+            View / Download SMM Deck (PDF)
+          </a>
+        </p>
+
+        <!-- Example embedded preview (iframe uses raw link) -->
+        <div style="margin-top:18px">
+          <iframe src="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" style="width:100%;height:420px;border-radius:10px;border:1px solid #eef4fb"></iframe>
         </div>
-      </a>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- ====== CONTACT ====== -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you’d like to collaborate or discuss a project, feel free to reach out below 👇</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message"
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:36px">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="card">
+          <p style="color:var(--muted)">Want to discuss a project? Fill this quick form and we will reach out.</p>
+          <form onsubmit="alert('Form is demo-only. Please contact via phone or email.'); return false;">
+            <input type="text" placeholder="Your name" required />
+            <input type="email" placeholder="Email address" required />
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button class="cta" type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">Quick contact</h3>
+          <p style="margin:0 0 6px;color:var(--muted)">Phone</p>
+          <p style="font-weight:700;margin-bottom:12px"><a href="tel:+918696915912">+91 8696915912</a></p>
+
+          <p style="margin:0 0 6px;color:var(--muted)">Email</p>
+          <p style="margin:0 0 12px">Use your Freelancer/LinkedIn contact — no public email listed</p>
+
+          <p style="margin:0 0 6px;color:var(--muted)">Download</p>
+          <p><a href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" target="_blank" class="chip">Download SMM deck</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 ITXITPro — Vikram Swami. Built with GitHub Pages.
+  </footer>
+
+</body>
+</html>
