@@ -1,0 +1,84 @@
+<!-- Save as portfolio.html and open in browser -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Portfolio Filters</title>
+  <style>
+    body{font-family: Arial, sans-serif; padding:30px;}
+    .filters{display:flex; gap:12px; margin-bottom:20px;}
+    .filter-btn{padding:10px 18px; border-radius:20px; border:1px solid #d4dce6; background:white; cursor:pointer;}
+    .filter-btn.active{background:#e9f1ff; color:#1a73e8; border-color:#c7ddff;}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+    .card{border:1px solid #eee; padding:12px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.03);}
+    .thumb{height:140px; background:#ddd; margin-bottom:10px; display:flex; align-items:center; justify-content:center; color:#555;}
+    @media(max-width:900px){ .grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:600px){ .grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+  <h1>Portfolio</h1>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="wordpress">Wordpress (11)</button>
+    <button class="filter-btn" data-filter="shopify">Shopify (6)</button>
+    <button class="filter-btn" data-filter="magento">Magento (1)</button>
+    <button class="filter-btn" data-filter="laravel">Laravel (1)</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <!-- Example cards: add/edit as many as you want -->
+    <div class="card" data-category="shopify">
+      <div class="thumb">Shopify Screenshot 1</div>
+      <strong>[Shopify]</strong><div>ZevarWorld store — Theme + Custom App</div>
+    </div>
+
+    <div class="card" data-category="wordpress">
+      <div class="thumb">WP Screenshot</div>
+      <strong>[Wordpress]</strong><div>Company blog + SEO</div>
+    </div>
+
+    <div class="card" data-category="shopify">
+      <div class="thumb">Shopify Screenshot 2</div>
+      <strong>[Shopify]</strong><div>Migration from Magento to Shopify</div>
+    </div>
+
+    <div class="card" data-category="magento">
+      <div class="thumb">Magento</div>
+      <strong>[Magento]</strong><div>ERP integration</div>
+    </div>
+
+    <div class="card" data-category="wordpress">
+      <div class="thumb">WP 2</div>
+      <strong>[Wordpress]</strong><div>Landing page + speed optimization</div>
+    </div>
+
+    <div class="card" data-category="laravel">
+      <div class="thumb">Laravel</div>
+      <strong>[Laravel]</strong><div>Custom admin panel</div>
+    </div>
+  </div>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelector('.filter-btn.active').classList.remove('active');
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card=>{
+        if(filter === 'all' || card.dataset.category === filter){
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
