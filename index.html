@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Astha's Portfolio</title>
   <style>
+    .project {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
     body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #222; background: #fafafa; }
     header { background: #1a1a1a; color: white; text-align: center; padding: 3rem 1rem; }
     section { padding: 4rem 10%; max-width: 1000px; margin: auto; }
@@ -22,38 +31,35 @@
     <p>Web Developer | WordPress | Shopify | Magento | Laravel</p>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Astha, a web developer passionate about building responsive and visually appealing websites. 
-       I have experience with WordPress, Shopify, Magento, and Laravel.</p>
-  </section>
+ <section id="projects">
+  <h2>My Work</h2>
+  <div class="projects">
+    <a href="https://zevarworld.com/" target="_blank" class="project">
+      <img src="https://via.placeholder.com/300x200" alt="Zevar World">
+      <h3>Zevar World</h3>
+      <p>E-commerce jewelry store built on Shopify.</p>
+    </a>
 
-  <section id="projects">
-    <h2>My Work</h2>
-    <div class="projects">
-      <div class="project">
-        <img src="https://via.placeholder.com/300x200" alt="Project 1">
-        <h3>Zevar World</h3>
-        <p>E-commerce jewelry store built on Shopify.</p>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/300x200" alt="Project 2">
-        <h3>S3T Koncepts</h3>
-        <p>WordPress website for an interior design company.</p>
-      </div>
-      <div class="project">
-        <img src="https://via.placeholder.com/300x200" alt="Project 3">
-        <h3>The Residences on Yonge</h3>
-        <p>Real estate landing page with dynamic layout.</p>
-      </div>
-    </div>
-  </section>
+    <a href="https://s3tkoncepts.com/" target="_blank" class="project">
+      <img src="https://via.placeholder.com/300x200" alt="S3T Koncepts">
+      <h3>S3T Koncepts</h3>
+      <p>WordPress website for an interior design company.</p>
+    </a>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>If you'd like to work with me, reach out below 👇</p>
-    <a href="tel:+918696915912" class="button">Call Me</a>
-  </section>
+    <a href="https://www.theresidencesonyonge.ca/" target="_blank" class="project">
+      <img src="https://via.placeholder.com/300x200" alt="Residences on Yonge">
+      <h3>The Residences on Yonge</h3>
+      <p>Real estate landing page with dynamic layout.</p>
+    </a>
+
+    <a href="https://www.jancoragencies.store/" target="_blank" class="project">
+      <img src="https://via.placeholder.com/300x200" alt="Jancor Agencies">
+      <h3>Jancor Agencies</h3>
+      <p>Shopify-based retail platform with smooth UX.</p>
+    </a>
+  </div>
+</section>
+
 
   <footer>
     <p>© 2025 Astha Sharma | Built with 💖 on GitHub Pages</p>
