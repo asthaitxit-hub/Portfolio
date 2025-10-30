@@ -1,257 +1,647 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ITXITPro Portfolio | Web & Optimization Services</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ITXITPro Portfolio — Web, Performance & SMM</title>
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --black: #111;
-      --orange: #ff6f3c;
-      --white: #fff;
-      --gray: #666;
-      --bg: #f5f5f5;
+    :root{
+      --bg:#07070a;
+      --card:#0f1724;
+      --muted:#9aa4b2;
+      --accent-orange:#ff6f3c;
+      --accent-blue:#009fe3;
+      --white:#ffffff;
+      --glass: rgba(255,255,255,0.03);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--black); line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#050507 0%, #0b0b0d 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
 
-    header { background: var(--black); color: var(--white); padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    header p { font-size: 1.2rem; }
+    /* HEADER */
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 6%;gap:12px;background:linear-gradient(90deg,#000 0%, #071426 60%, var(--accent-orange) 120%)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0039a6,#00a6ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 8px 28px rgba(0,0,0,0.35)}
+    .brand h1{font-size:1.05rem;margin:0}
+    nav.main{display:flex;gap:14px;align-items:center}
+    nav.main a{color:var(--white);padding:8px 12px;border-radius:8px;font-weight:600;transition:all .18s;opacity:0.95}
+    nav.main a:hover{background:rgba(255,255,255,0.05);color:var(--accent-blue);transform:translateY(-2px)}
 
-    nav { display: flex; justify-content: center; gap: 20px; margin-top: 20px;}
-    nav a { padding: 10px 15px; color: var(--white); border: 1px solid var(--white); border-radius: 5px; transition: all .3s; }
-    nav a:hover { background: var(--orange); border-color: var(--orange); }
+    /* HERO */
+    header.hero{padding:48px 6%;text-align:center}
+    header.hero h2{font-size:2.6rem;margin:0 0 8px;color:var(--white)}
+    header.hero p{color:var(--muted);margin:0 0 18px;font-size:1.05rem}
+    .role-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .role-buttons a{padding:8px 14px;border-radius:999px;background:var(--glass);color:var(--white);border:1px solid rgba(255,255,255,0.04);font-weight:600}
+    .role-buttons a:hover{background:linear-gradient(90deg,var(--accent-orange),var(--accent-blue));box-shadow:0 10px 30px rgba(0,0,0,0.6);}
 
-    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    /* MAIN container */
+    .container{max-width:1200px;margin:34px auto;padding:0 22px}
 
-    h2 { color: var(--orange); margin-bottom: 20px; }
+    /* Section titles */
+    .section-title{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .section-title h3{margin:0;color:var(--accent-orange);font-size:1.4rem}
+    .section-title p{margin:0;color:var(--muted);font-size:0.95rem}
 
-    /* Services / Portfolio Grid */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 
-    .card {
-      background: var(--white);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform .3s, box-shadow .3s;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+    /* CARD */
+    .card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);transition:transform .22s,box-shadow .22s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.6)}
+    .thumb{height:180px;background:#0b1220;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .body{padding:14px}
+    .body h4{margin:0 0 8px;color:var(--accent-blue);font-size:1.05rem}
+    .body p{margin:0 0 10px;color:var(--muted);font-size:0.92rem}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-weight:600;color:var(--muted);font-size:0.82rem}
 
-    .card img { width: 100%; display: block; }
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent-orange),var(--accent-blue));color:var(--white);font-weight:700;border:none;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
 
-    .card-content { padding: 20px; }
-    .card-content h3 { margin-bottom: 10px; font-size: 1.2rem; color: var(--black); }
-    .card-content p { color: var(--gray); margin-bottom: 10px; }
-    .card-content a { color: var(--orange); font-weight: 600; }
+    /* WHY BEST / TEAM */
+    .two-col{display:grid;grid-template-columns:1fr 380px;gap:18px}
+    .why-list{list-style:disc;padding-left:18px;color:var(--muted);line-height:1.7}
+    .team .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#002e8a,#00a0ff);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:white;margin-right:12px}
 
-    /* SMM Embed */
-    .smm-embed iframe {
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      height: 400px;
-    }
+    /* SMM embed */
+    .smm-iframe{width:100%;height:420px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);overflow:hidden}
 
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: var(--black);
-      color: var(--white);
-      margin-top: 60px;
+    footer{padding:28px 6%;text-align:center;color:var(--muted);font-size:0.95rem;border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
+
+    @media (max-width:900px){
+      .two-col{grid-template-columns:1fr}
+      header.hero h2{font-size:1.8rem}
+      .thumb{height:150px}
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>ITXITPro / Vikram Swami</h1>
-    <p>Web Development | Page Speed Optimization | SMM</p>
-    <nav>
-      <a href="#speed">Speed Optimization</a>
-      <a href="#webdev">Website Development</a>
-      <a href="#smm">SMM / SEO</a>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">ITX</div>
+      <div>
+        <h1>ITXITPro</h1>
+        <div style="color:var(--muted);font-size:0.85rem">Digital • eCommerce • Performance</div>
+      </div>
+    </div>
+
+    <nav class="main">
+      <a href="#speed">Page Speed</a>
+      <a href="#development">Development</a>
+      <a href="#smm">SEO / SMM</a>
+      <a href="#why">Why Us</a>
+      <a href="#team">Team & Skills</a>
     </nav>
-  </header>
-
-  <div class="container">
-
-    <!-- Speed Optimization Section -->
-    <section id="speed">
-      <h2>Page Speed Optimization</h2>
-      <div class="grid">
-        <!-- Iterate your links -->
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://s3tkoncepts.com/" alt="S3T Koncepts">
-          <div class="card-content">
-            <h3>S3T Koncepts</h3>
-            <p>WordPress site speed optimization.</p>
-            <a href="https://s3tkoncepts.com/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/http://anuttarafabric.com/" alt="Anuttara Fabric">
-          <div class="card-content">
-            <h3>Anuttara Fabric</h3>
-            <p>Shopify performance optimizations.</p>
-            <a href="http://anuttarafabric.com/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://itxitpro.com/blog/" alt="ITXITPro Blog">
-          <div class="card-content">
-            <h3>ITXITPro Blog</h3>
-            <p>Wordpress blog optimization.</p>
-            <a href="https://itxitpro.com/blog/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <!-- Add more similarly -->
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://www.theresidencesonyonge.ca/" alt="Residences on Yonge">
-          <div class="card-content">
-            <h3>The Residences on Yonge</h3>
-            <p>WordPress site speed & performance.</p>
-            <a href="https://www.theresidencesonyonge.ca/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://www.jancoragencies.store/" alt="Jancor Agencies">
-          <div class="card-content">
-            <h3>Jancor Agencies</h3>
-            <p>WordPress (or Shopify) store optimization.</p>
-            <a href="https://www.jancoragencies.store/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://www.wor.com/" alt="WOR">
-          <div class="card-content">
-            <h3>WOR</h3>
-            <p>Shopify speed tuning.</p>
-            <a href="https://www.wor.com/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://equinoxelifecare.com/" alt="Equinoxe Life Care">
-          <div class="card-content">
-            <h3>Equinoxe Life Care</h3>
-            <p>WordPress site optimization.</p>
-            <a href="https://equinoxelifecare.com/" target="_blank">Visit Site</a>
-          </div>
-        </div>
-
-        <!-- Continue with all your speed links similarly -->
-      </div>
-    </section>
-
-    <!-- Website Development Section -->
-    <section id="webdev" style="margin-top:60px">
-      <h2>Website Development</h2>
-      <div class="grid">
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://anuttaraexports.com/" alt="Anuttara Exports">
-          <div class="card-content"><h3>Anuttara Exports</h3><p>WordPress development.</p><a href="https://anuttaraexports.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://roboticssurgeon.in/" alt="Robotic Surgeon">
-          <div class="card-content"><h3>Robotics Surgeon</h3><p>WordPress medical site.</p><a href="https://roboticssurgeon.in/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://gpproduction.in/" alt="GP Production">
-          <div class="card-content"><h3>GP Production</h3><p>WordPress business website.</p><a href="https://gpproduction.in/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://indiantentmanufacturers.com/" alt="Indian Tent Manufacturers">
-          <div class="card-content"><h3>Indian Tent Manufacturers</h3><p>WordPress corporate.</p><a href="https://indiantentmanufacturers.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://verveagrotech.in/" alt="Verve Agrotech">
-          <div class="card-content"><h3>Verve Agrotech</h3><p>WordPress agriculture platform.</p><a href="https://verveagrotech.in/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://zevarworld.com/" alt="Zevar World">
-          <div class="card-content"><h3>Zevar World</h3><p>WooCommerce / WordPress store.</p><a href="https://zevarworld.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://itxitpro.ae/" alt="ITXITPro AE">
-          <div class="card-content"><h3>ITXITPro AE</h3><p>ITXITPro Company website.</p><a href="https://itxitpro.ae/" target="_blank">Visit Site</a></div>
-        </div>
-        <!-- Add Shopify dev sites -->
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://jigsawjungle.com/" alt="Jigsaw Jungle">
-          <div class="card-content"><h3>Jigsaw Jungle</h3><p>Shopify e-commerce development.</p><a href="https://jigsawjungle.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/http://anuttarafabric.com/" alt="Anuttara Fabric">
-          <div class="card-content"><h3>Anuttara Fabric</h3><p>Shopify store build.</p><a href="http://anuttarafabric.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://labelkalwa.co.in/" alt="Label Kalwa">
-          <div class="card-content"><h3>Label Kalwa</h3><p>Shopify store.</p><a href="https://labelkalwa.co.in/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://healthgearmedical.com/" alt="HealthGear Medical">
-          <div class="card-content"><h3>HealthGear Medical</h3><p>Shopify medical e-store.</p><a href="https://healthgearmedical.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://houseofcaera.com/" alt="House of Caera">
-          <div class="card-content"><h3>House of Caera</h3><p>Shopify lifestyle brand.</p><a href="https://houseofcaera.com/" target="_blank">Visit Site</a></div>
-        </div>
-        <div class="card">
-          <img src="//image.thum.io/get/width/600/crop/400/https://www.rideeverystride.com/" alt="Ride Every Stride">
-          <div class="card-content"><h3>Ride Every Stride</h3><p>Shopify fitness / retail site.</p><a href="https://www.rideeverystride.com/" target="_blank">Visit Site</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SMM / SEO Section -->
-    <section id="smm" style="margin-top:60px">
-      <h2>SMM / SEO Case Studies</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-content">
-            <h3>SMM Instagram Reel 1</h3>
-            <p>Click to view on Instagram</p>
-            <a href="https://www.instagram.com/reel/DA0gl6XIcTp/" target="_blank">Open Reel 1</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <h3>SMM Instagram Reel 2</h3>
-            <p>Click to view on Instagram</p>
-            <a href="https://www.instagram.com/reel/C4zzLTYPHi0/" target="_blank">Open Reel 2</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <h3>SMM Instagram Reel 3</h3>
-            <p>Click to view on Instagram</p>
-            <a href="https://www.instagram.com/reel/DPS7HITCBdz/" target="_blank">Open Reel 3</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content smm-embed">
-            <h3>SMM Deck (PDF)</h3>
-            <a href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" target="_blank">View / Download PDF</a>
-            <iframe src="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <footer>
-    &copy; 2025 ITXITPro | Portfolio by Vikram Swami
-  </footer>
+  <!-- HERO -->
+  <header class="hero">
+    <h2>ITXITPro — Performance, eCommerce & Web Development</h2>
+    <p>We build, optimize and scale websites — WordPress, Shopify, React, Magento and custom Laravel platforms.</p>
 
+    <div class="role-buttons" style="margin-top:14px">
+      <a href="#speed">Page Speed</a>
+      <a href="#development">Website Development</a>
+      <a href="#smm">SMM / SEO</a>
+      <a href="#team">Team & Skills</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- WHY US -->
+    <section id="why" style="margin-top:22px">
+      <div class="section-title">
+        <h3>Why ITXITPro — real results, not buzzwords</h3>
+        <p>We combine engineering discipline with UX sensibilities — measurable performance wins & reliable delivery.</p>
+      </div>
+
+      <div class="two-col" style="margin-top:12px">
+        <div class="card" style="padding:18px">
+          <h4 style="margin-bottom:8px">Proven outcomes we deliver</h4>
+          <ul class="why-list">
+            <li><b>Core Web Vitals uplift:</b> LCP, FID/INP and CLS improvements through targeted audits.</li>
+            <li><b>Faster store load:</b> Asset optimisation, critical CSS, lazy-loading and image compression for eCommerce.</li>
+            <li><b>Reliable scaling:</b> CDN + cache + backend tuning for peak sales and campaigns.</li>
+            <li><b>Conversion focus:</b> Checkout UX improvements and microcopy for higher conversions.</li>
+            <li><b>Transparent process:</b> Weekly sprints, staging, QA and rollback-ready deploys.</li>
+          </ul>
+        </div>
+
+        <aside class="card team" style="padding:18px">
+          <h4 style="margin-bottom:12px">Key Team</h4>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:center">
+              <div class="avatar">VS</div>
+              <div>
+                <div style="font-weight:700">Vikram Swami</div>
+                <div style="color:var(--muted);font-size:0.92rem">Lead — Web & eCommerce</div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center">
+              <div class="avatar" style="background:linear-gradient(135deg,#ff6f3c,#ffb07a)">AS</div>
+              <div>
+                <div style="font-weight:700">Astha Sharma</div>
+                <div style="color:var(--muted);font-size:0.92rem">Project & Delivery</div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center">
+              <div class="avatar" style="background:linear-gradient(135deg,#0066ff,#00d4ff)">UI</div>
+              <div>
+                <div style="font-weight:700">Design & UX</div>
+                <div style="color:var(--muted);font-size:0.92rem">Product Design & Figma</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TEAM & SKILLS -->
+    <section id="team" style="margin-top:28px">
+      <div class="section-title">
+        <h3>Team & Skills</h3>
+        <p>Cross-functional skills we deliver — click any skill to jump to projects that use it.</p>
+      </div>
+
+      <div class="card" style="padding:16px;margin-bottom:10px">
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="tag" href="#development">Web Development</a>
+          <a class="tag" href="#development">WordPress</a>
+          <a class="tag" href="#development">Shopify</a>
+          <a class="tag" href="#development">Magento</a>
+          <a class="tag" href="#speed">Performance</a>
+          <a class="tag" href="#smm">SMM / SEO</a>
+          <a class="tag" href="#team">UI / UX</a>
+          <a class="tag" href="#team">React</a>
+          <a class="tag" href="#team">Laravel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE SPEED OPTIMIZATION (Technology-wise) -->
+    <section id="speed" style="margin-top:30px">
+      <div class="section-title">
+        <h3>Page Speed Optimization — by Technology</h3>
+        <p>Real client work organized by platform type (WordPress / Shopify / React / Others)</p>
+      </div>
+
+      <!-- WORDPRESS SPEED -->
+      <h4 style="color:var(--accent-blue);margin:10px 0">WordPress — Speed Projects</h4>
+      <div class="grid" style="margin-bottom:18px">
+        <!-- full list from your provided links (Wordpress ones for speed) -->
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://s3tkoncepts.com/" alt="s3t"></div>
+          <div class="body">
+            <h4>S3T Koncepts</h4>
+            <p>WordPress speed & performance optimizations.</p>
+            <div class="meta"><span class="tag">WordPress</span><span class="tag">Performance</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://s3tkoncepts.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://itxitpro.com/blog/" alt="itxitpro blog"></div>
+          <div class="body">
+            <h4>ITXITPro Blog</h4>
+            <p>Blog performance improvements & caching setup.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://itxitpro.com/blog/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.theresidencesonyonge.ca/" alt="residences"></div>
+          <div class="body">
+            <h4>The Residences on Yonge</h4>
+            <p>Large property site — speed & SEO focus.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.theresidencesonyonge.ca/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.jancoragencies.store/" alt="jancor"></div>
+          <div class="body">
+            <h4>Jancor Agencies</h4>
+            <p>Performance improvements for product-heavy pages.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.jancoragencies.store/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://equinoxelifecare.com/" alt="equinoxe"></div>
+          <div class="body">
+            <h4>Equinoxe Life Care</h4>
+            <p>Healthcare site speed tuning & image optimization.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://equinoxelifecare.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://rlsconsultants.com/" alt="rls"></div>
+          <div class="body">
+            <h4>RLS Consultants</h4>
+            <p>Corporate WordPress optimization & performance tuning.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://rlsconsultants.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://roboticssurgeon.in/" alt="robotic"></div>
+          <div class="body">
+            <h4>Robotics Surgeon</h4>
+            <p>Medical WordPress site — optimized images and speed fixes.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://roboticssurgeon.in/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.itgindia.com/" alt="itg"></div>
+          <div class="body">
+            <h4>ITG India</h4>
+            <p>Corporate site performance & asset optimization.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.itgindia.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://thenaturalfoodstore.ca/" alt="naturalfood"></div>
+          <div class="body">
+            <h4>The Natural Food Store</h4>
+            <p>Shopify store tuned for fast product discovery.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://thenaturalfoodstore.ca/" target="_blank">Open</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHOPIFY SPEED -->
+      <h4 style="color:var(--accent-blue);margin:10px 0">Shopify — Speed & Performance</h4>
+      <div class="grid" style="margin-bottom:18px">
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/http://anuttarafabric.com/" alt="anuttara"></div>
+          <div class="body">
+            <h4>Anuttara Fabric</h4>
+            <p>Shopify performance improvements: asset optimization and theme tuning.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="http://anuttarafabric.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.wor.com/" alt="wor"></div>
+          <div class="body">
+            <h4>WOR</h4>
+            <p>Shopify improvements & CDN setup.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.wor.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://jigsawjungle.com/" alt="jigsaw"></div>
+          <div class="body">
+            <h4>Jigsaw Jungle</h4>
+            <p>Shopify eCommerce optimization and UX enhancements.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://jigsawjungle.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.rideeverystride.com/" alt="rideevery"></div>
+          <div class="body">
+            <h4>Ride Every Stride</h4>
+            <p>Shopify loading improvements & checkout flow optimization.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.rideeverystride.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REACT / OTHERS -->
+      <h4 style="color:var(--accent-blue);margin:10px 0">React / Other Tech</h4>
+      <div class="grid">
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://nurturewithcarekidsacademy.com/" alt="nurture"></div>
+          <div class="body">
+            <h4>Nurture With Care Kids Academy</h4>
+            <p>React site — performance & bundle optimization.</p>
+            <div class="meta"><span class="tag">React</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://nurturewithcarekidsacademy.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://kesrinandan.com/" alt="kesri"></div>
+          <div class="body">
+            <h4>Kesri Nandan</h4>
+            <p>React site optimization and SEO readiness.</p>
+            <div class="meta"><span class="tag">React</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://kesrinandan.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBSITE DEVELOPMENT -->
+    <section id="development" style="margin-top:30px">
+      <div class="section-title">
+        <h3>Website Development — WordPress, Shopify, Magento</h3>
+        <p>Selected development projects (real client names shown).</p>
+      </div>
+
+      <h4 style="color:var(--accent-blue);margin:10px 0">WordPress Development</h4>
+      <div class="grid" style="margin-bottom:18px">
+        <!-- all WordPress list you provided -->
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://anuttaraexports.com/" alt="anuttara exports"></div>
+          <div class="body">
+            <h4>Anuttara Exports</h4>
+            <p>Corporate WordPress build & product pages.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://anuttaraexports.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://roboticssurgeon.in/" alt="roboticssurgeon"></div>
+          <div class="body">
+            <h4>Robotic Surgeon</h4>
+            <p>Medical services site — development & maintenance.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://roboticssurgeon.in/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://gpproduction.in/" alt="gpproduction"></div>
+          <div class="body">
+            <h4>GP Production</h4>
+            <p>Business website with custom templates.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://gpproduction.in/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://indiantentmanufacturers.com/" alt="indian tent manufacturers"></div>
+          <div class="body">
+            <h4>Indian Tent Manufacturers</h4>
+            <p>Industry catalog & product pages.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://indiantentmanufacturers.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://highschool.teoler.com/" alt="highschool"></div>
+          <div class="body">
+            <h4>Highschool Teoler</h4>
+            <p>Educational portal development (WordPress).</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://highschool.teoler.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://preschool.teoler.com/" alt="preschool"></div>
+          <div class="body">
+            <h4>Preschool Teoler</h4>
+            <p>Responsive WordPress site for preschool.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://preschool.teoler.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://verveagrotech.in/" alt="verve"></div>
+          <div class="body">
+            <h4>Verve Agrotech</h4>
+            <p>Agritech WordPress platform & product pages.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://verveagrotech.in/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://zevarworld.com/" alt="zevarworld"></div>
+          <div class="body">
+            <h4>Zevar World</h4>
+            <p>WooCommerce store (WordPress) — product & collection setup.</p>
+            <div class="meta"><span class="tag">WooCommerce</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://zevarworld.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.optiwebmarketing.ca/" alt="optiweb"></div>
+          <div class="body">
+            <h4>OptiWeb Marketing</h4>
+            <p>Marketing agency website build & support.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.optiwebmarketing.ca/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://groupatlas.ca/" alt="groupatlas"></div>
+          <div class="body">
+            <h4>Group Atlas</h4>
+            <p>Corporate website — WordPress development.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://groupatlas.ca/" target="_blank">Open</a></div>
+        </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.itgindia.com/" alt="itgindia"></div>
+          <div class="body">
+            <h4>ITG India</h4>
+            <p>Enterprise WordPress & support.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.itgindia.com/" target="_blank">Open</a></div>
+        </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://itxitpro.ae/" alt="itxitpro ae"></div>
+          <div class="body">
+            <h4>ITXITPro AE</h4>
+            <p>Company site — corporate WordPress presence.</p>
+            <div class="meta"><span class="tag">WordPress</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://itxitpro.ae/" target="_blank">Open</a></div>
+        </div>
+        </div>
+
+      </div>
+
+      <h4 style="color:var(--accent-blue);margin:10px 0">Shopify Development</h4>
+      <div class="grid" style="margin-bottom:18px">
+        <!-- all Shopify examples you gave -->
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://jigsawjungle.com/" alt="jigsaw jungle"></div>
+          <div class="body">
+            <h4>Jigsaw Jungle</h4>
+            <p>Shopify eCommerce development (catalog & UX).</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://jigsawjungle.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/http://anuttarafabric.com/" alt="anuttara fabric"></div>
+          <div class="body">
+            <h4>Anuttara Fabric</h4>
+            <p>Shopify storefront & product collection setup.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="http://anuttarafabric.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://labelkalwa.co.in/" alt="label kalwa"></div>
+          <div class="body">
+            <h4>Label Kalwa</h4>
+            <p>Shopify store development & theme work.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://labelkalwa.co.in/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://healthgearmedical.com/" alt="healthgear"></div>
+          <div class="body">
+            <h4>HealthGear Medical</h4>
+            <p>Shopify medical store & UX work.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://healthgearmedical.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://houseofcaera.com/" alt="house of caera"></div>
+          <div class="body">
+            <h4>House of Caera</h4>
+            <p>Shopify lifestyle & product curation.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://houseofcaera.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.rideeverystride.com/" alt="ride every stride"></div>
+          <div class="body">
+            <h4>Ride Every Stride</h4>
+            <p>Shopify store, checkout UX & speed.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.rideeverystride.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.suranajewellersofjaipur.com/" alt="surana"></div>
+          <div class="body">
+            <h4>Surana Jewellers of Jaipur</h4>
+            <p>Shopify jewellery store & product showcase.</p>
+            <div class="meta"><span class="tag">Shopify</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.suranajewellersofjaipur.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="color:var(--accent-blue);margin:10px 0">Magento</h4>
+      <div class="grid">
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://movaglobes.com/" alt="movaglobes"></div>
+          <div class="body">
+            <h4>Mova Globes</h4>
+            <p>Custom Magento store examples & migrations.</p>
+            <div class="meta"><span class="tag">Magento</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://movaglobes.com/" target="_blank">Open</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO / SMM -->
+    <section id="smm" style="margin-top:30px">
+      <div class="section-title">
+        <h3>SEO & SMM Case Studies</h3>
+        <p>Campaign examples, Instagram reels and downloadable SMM deck.</p>
+      </div>
+
+      <div class="grid" style="margin-bottom:18px">
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.instagram.com/reel/DA0gl6XIcTp/" alt="reel1"></div>
+          <div class="body">
+            <h4>Instagram Reel — Campaign 1</h4>
+            <p>Short-format video — engagement & reach campaign.</p>
+            <div class="meta"><span class="tag">SMM</span><span class="tag">Instagram</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.instagram.com/reel/DA0gl6XIcTp/" target="_blank">Open Reel</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.instagram.com/reel/C4zzLTYPHi0/" alt="reel2"></div>
+          <div class="body">
+            <h4>Instagram Reel — Campaign 2</h4>
+            <p>Brand-awareness reels for higher impressions.</p>
+            <div class="meta"><span class="tag">SMM</span><span class="tag">Instagram</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.instagram.com/reel/C4zzLTYPHi0/" target="_blank">Open Reel</a></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://www.instagram.com/reel/DPS7HITCBdz/" alt="reel3"></div>
+          <div class="body">
+            <h4>Instagram Reel — Campaign 3</h4>
+            <p>Paid-social creative for higher CTR.</p>
+            <div class="meta"><span class="tag">SMM</span><span class="tag">Meta Ads</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://www.instagram.com/reel/DPS7HITCBdz/" target="_blank">Open Reel</a></div>
+          </div>
+        </div>
+
+        <!-- SMM Deck PDF -->
+        <div class="card">
+          <div class="thumb"><img src="https://image.thum.io/get/width/900/https://asthaitxit-hub.github.io/Portfolio/" alt="smm deck"></div>
+          <div class="body">
+            <h4>SMM Portfolio Deck</h4>
+            <p>Download case studies and campaign performance (PDF).</p>
+            <div class="meta"><span class="tag">PDF</span></div>
+            <div style="margin-top:10px"><a class="btn" href="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf" target="_blank">Open PDF</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- optional embedded PDF preview -->
+      <div class="card" style="padding:12px">
+        <div style="color:var(--muted);margin-bottom:8px">SMM Deck preview</div>
+        <iframe class="smm-iframe" src="https://raw.githubusercontent.com/asthaitxit-hub/Portfolio/main/SMM%20Deck%20(1).pdf"></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 ITXITPro — Portfolio & case studies. Built by Astha Sharma • All client names and links are real and used with permission where applicable.
+  </footer>
 </body>
 </html>
